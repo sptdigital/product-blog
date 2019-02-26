@@ -12,10 +12,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-cosmicjs',
       options: {
-        bucketSlug: process.env.COSMIC_BUCKET || 'gatsby-blog-cosmic-js',
-        objectTypes: ['posts','settings'],
+        bucketSlug: process.env.COSMIC_BUCKET || 'product-blog',
+        objectTypes: ['blog-posts','settings'],
         apiAccess: {
-          read_key: process.env.COSMIC_READ_KEY || '6Dx8qaSRsktk6qAIuzLHvxYMTkM1lflQCgX51sQzY4XOlMVq63',
+          read_key: process.env.COSMIC_READ_KEY || 'CJJ6xLNXLeKpHBF4ccrQEdCKkKjbYhcRzukipX3vRlsD22dcD1',
         }
       }
     },

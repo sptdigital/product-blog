@@ -16,11 +16,12 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allCosmicjsPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
+            allCosmicjsBlogPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
               edges {
                 node {
                   slug,
-                  title
+                  title,
+                  content
                 }
               }
             }
@@ -33,7 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create blog posts pages.
-        const posts = result.data.allCosmicjsPosts.edges;
+        const posts = result.data.allCosmicjsBlogPosts.edges;
 
         each(posts, (post, index) => {
           const next = index === posts.length - 1 ? null : posts[index + 1].node;

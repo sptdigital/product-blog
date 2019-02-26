@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
       this,
       'props.data.cosmicjsSettings.metadata.site_title'
     )
-    const posts = get(this, 'props.data.allCosmicjsPosts.edges')
+    const posts = get(this, 'props.data.allCosmicjsBlogPosts.edges')
     const author = get(this, 'props.data.cosmicjsSettings.metadata')
     const location = get(this, 'props.location')
 
@@ -51,15 +51,15 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allCosmicjsPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
+    allCosmicjsBlogPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
       edges {
         node {
-          metadata {
-            description
-          }
           slug
           title
           created(formatString: "DD MMMM, YYYY")
+          metadata {
+            description
+          }
         }
       }
     }

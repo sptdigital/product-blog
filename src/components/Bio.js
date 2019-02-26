@@ -12,10 +12,10 @@ export default ({ settings }) => (
       src={settings.author_avatar.imgix_url}
       alt={settings.author_name}
       style={{
-        marginRight: rhythm(1 / 2),
+        marginRight: rhythm(4 / 2),
         marginBottom: 0,
-        width: rhythm(2),
-        height: rhythm(2),
+        width: rhythm(8),
+        height: rhythm(4),
       }}
     />
     <div dangerouslySetInnerHTML={{ __html: settings.author_bio }} />

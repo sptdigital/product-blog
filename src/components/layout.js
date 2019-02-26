@@ -17,7 +17,7 @@ export default ({ children, location }) => (
         cosmicjsSettings(slug: { eq: "general" }) {
           metadata {
             site_heading
-            homepage_hero {
+            site_hero_image {
               imgix_url
             }
           }
@@ -27,7 +27,7 @@ export default ({ children, location }) => (
     render={data => {
       const siteTitle = data.cosmicjsSettings.metadata.site_heading
       const homgePageHero =
-        data.cosmicjsSettings.metadata.homepage_hero.imgix_url
+        data.cosmicjsSettings.metadata.site_hero_image
       let header
 
       let rootPath = `/`
@@ -41,7 +41,7 @@ export default ({ children, location }) => (
         header = (
           <div
             style={{
-              backgroundColor: '#007ACC',
+              backgroundColor: '#FF7900',
               backgroundImage: `url("${homgePageHero}?w=2000")`,
               backgroundSize: 'cover',
               backgroundPosition: 'right',
@@ -49,6 +49,7 @@ export default ({ children, location }) => (
               height: rhythm(14),
               position: 'relative',
               marginBottom: `${rhythm(1.5)}`,
+              color: '#FFFFFF',
             }}
           >
             <h1
@@ -61,6 +62,8 @@ export default ({ children, location }) => (
                 top: rhythm(4),
                 marginTop: '0',
                 height: rhythm(2.5),
+                fontFamily: 'Klavika',
+                fontWeight: 500,
               }}
             >
               <Link

@@ -10,12 +10,13 @@ import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.cosmicjsPosts
+    const post = this.props.data.cosmicjsBlogPosts
     const siteTitle = get(
       this.props,
       'data.cosmicjsSettings.metadata.site_title'
     )
     const author = get(this, 'props.data.cosmicjsSettings.metadata')
+      console.log(author);
     const location = get(this, 'props.location')
     const { previous, next } = this.props.pageContext
 
@@ -121,23 +122,13 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    cosmicjsPosts(slug: { eq: $slug }) {
+    cosmicjsBlogPosts(slug: { eq: $slug }) {
       id
       content
       title
       created(formatString: "MMMM DD, YYYY")
       metadata {
         hero {
-          imgix_url
-        }
-      }
-    }
-    cosmicjsSettings(slug: { eq: "general" }) {
-      metadata {
-        site_title
-        author_name
-        author_bio
-        author_avatar {
           imgix_url
         }
       }
